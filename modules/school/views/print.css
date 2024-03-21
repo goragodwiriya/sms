@@ -1,0 +1,124 @@
+@page {
+  margin: 0;
+  size: A4;
+}
+body,
+html {
+  background-color: #333;
+  padding: 0;
+  margin: 0;
+  font-family: "Sarabun", Tahoma, Loma, "Times New Roman", Times, serif;
+  font-size: 10pt;
+  line-height: 2;
+  color: #000;
+}
+section {
+  background-color: #fff;
+  box-shadow: 0 0 10px #000;
+  width: 210mm;
+  margin: 30px auto;
+  padding: 10px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media print {
+  html,
+  body {
+    width: 210mm;
+    background-color: #fff;
+  }
+  section {
+    box-shadow: none;
+    width: auto;
+    margin: 0;
+  }
+  a.icon-print {
+    display: none;
+  }
+}
+@media screen {
+  a.icon-print {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ddd;
+    font-size: 30px;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    border-radius: 50em;
+    -moz-border-radius: 50em;
+    -webkit-border-radius: 50em;
+    text-decoration: none;
+  }
+  a.icon-print:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+  a.icon-print:before {
+    margin: 0;
+  }
+}
+h1,
+h2 {
+  margin: 0;
+  text-align: center;
+  font-weight: normal;
+}
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1em;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table,
+td,
+th {
+  border-width: 1px;
+  font-weight: normal;
+}
+table.border {
+  border-style: none none solid solid;
+}
+table.border thead th {
+  border-style: solid solid none none;
+}
+table.border thead th,
+td[scope] {
+  background-color: #eee;
+}
+table.border tbody td {
+  border-style: solid solid none none;
+}
+td {
+  padding: 0 5px;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.line {
+  display: inline-block;
+  padding: 0 1em;
+  border-bottom: 1px dashed #000;
+  vertical-align: bottom;
+  min-width: 10em;
+  text-align: center;
+}
+img {
+  height: 100px;
+  width: auto;
+}

@@ -1,0 +1,9 @@
+.icon-position:before {
+  content: "\f0c0";
+}
+.icon-department:before {
+  content: "\e611";
+}
+.personnel_view .td {
+  border-bottom: 1px dashed #ddd;
+}

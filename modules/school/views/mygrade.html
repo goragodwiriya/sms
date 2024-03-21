@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang={LANGUAGE} dir=ltr>
+
+<head>
+  <meta charset=utf-8>
+  <link rel=stylesheet href={WEBURL}modules/school/views/print.css>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@200&display=swap" rel="stylesheet">
+  <link rel=stylesheet href={WEBURL}skin/fonts.css>
+  <title>{LNG_Student Identification Form}</title>
+</head>
+
+<body>
+  <a class="icon-print " href="#" onclick="window.print() " title="พิมพ์หน้านี้ "></a>
+  <section>
+    <h1>{LNG_Student Identification Form}</h1>
+    <table>
+      <tr>
+        <td>
+          <h2>%SCHOOLNAME%</h2>
+        </td>
+        <td>
+          <h2>{LNG_Province} %SCHOOLPROVINCE%</h2>
+        </td>
+      </tr>
+      <tr>
+        <td class="center">{LNG_Class} %CLASS%</td>
+        <td class="center">{LNG_Academic year} %YEAR%</td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td class="center">{LNG_Name} %NAME%</td>
+        <td class="center">{LNG_Student ID} %STUDENT%</td>
+        <td class="center">{LNG_Room} %ROOM%</td>
+        <td class="center">{LNG_Number} %NUMBER%</td>
+      </tr>
+    </table>
+    <table class="border">
+      <thead>
+        <tr>%THEAD%</tr>
+      </thead>
+      <tbody>
+        %TBODY%
+      </tbody>
+    </table>
+    <table style="width:auto">
+      <tr>
+        <td>{LNG_Credits in this semester}</td>
+        <td>%CREDITS%</td>
+        <td>{LNG_Grades in this semester}</td>
+        <td>%GRADES%</td>
+      </tr>
+    </table>
+  </section>
+</body>
+
+</html>
