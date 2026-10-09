@@ -1,0 +1,43 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header data-component="api" data-endpoint="api/school/grades/info" data-url-params="true" data-url-params-fields="subject">
+          <div>
+            <h1 class="icon-elearning" data-text="title" translate="no"></h1>
+            <p data-i18n>{LNG_Student} {LNG_Grade}</p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-info icon-excel" data-action="click.prevent:exportCsv" data-export-table="schoolGrades"
+                    data-export-url="api/school/grades/export" data-i18n>{LNG_Download} {LNG_Grade}</button>
+            <a class="btn btn-primary icon-register" data-if="can_register" data-attr="href:'/school-register?subject=' + id + '&class=' + class"
+               data-i18n>{LNG_Register course}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="schoolGrades" data-source="api/school/grades" data-default-sort="room asc,number asc,student_id asc"
+                   data-page-size="50" data-search-columns="student_id,name" data-action-url="api/school/grades/action"
+                   data-action-button="Process|btn-success" data-dynamic-columns="true" data-row-actions='{
+                     "view": {
+                       "title": "Details of Student",
+                       "className": "btn btn-info icon-info notext",
+                       "url": "api/school/student/view",
+                       "method": "get",
+                       "navigate": false,
+                       "params": {"id": "{student}"}
+                     }
+                   }'>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

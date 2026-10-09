@@ -1,0 +1,100 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-elearning" data-i18n>{LNG_Manage} {LNG_Courses}</h1>
+            <p data-i18n>{LNG_School}</p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-info icon-excel" data-action="click.prevent:exportCsv" data-export-table="schoolCourses"
+                    data-export-url="api/school/courses/export" data-i18n>{LNG_Download} {LNG_Course}</button>
+            <a class="btn btn-primary icon-new" href="/school-course?id=0" data-i18n>{LNG_Add} {LNG_Course}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <form data-table-filter="schoolCourses" class="table_nav">
+              <div>
+                <label for="courses_teacher" data-i18n>{LNG_Teacher}</label>
+                <span class="form-control">
+                  <select id="courses_teacher" name="teacher">
+                    <option value="" data-i18n>{LNG_all items}</option>
+                  </select>
+                </span>
+              </div>
+              <div>
+                <label for="courses_year" data-i18n>{LNG_Academic year}</label>
+                <span class="form-control">
+                  <select id="courses_year" name="year">
+                    <option value="0" data-i18n>{LNG_all items}</option>
+                  </select>
+                </span>
+              </div>
+              <div>
+                <label for="courses_term" data-i18n>{LNG_Term}</label>
+                <span class="form-control">
+                  <select id="courses_term" name="term">
+                    <option value="0" data-i18n>{LNG_all items}</option>
+                  </select>
+                </span>
+              </div>
+              <div>
+                <label for="courses_class" data-i18n>{LNG_Class}</label>
+                <span class="form-control">
+                  <select id="courses_class" name="class">
+                    <option value="" data-i18n>{LNG_all items}</option>
+                  </select>
+                </span>
+              </div>
+              <input type="search" name="search" placeholder="{LNG_Search}...">
+            </form>
+            <table class="table border fullwidth" data-table="schoolCourses" data-source="api/school/courses" data-default-sort="year desc,term desc,teacher_id desc"
+                   data-page-size="30" data-action-url="api/school/courses/action" data-action-button="Process|btn-success" data-row-actions='{
+                     "grades": {
+                       "title": "Student",
+                       "className": "btn btn-warning icon-users notext",
+                       "url": "/school-grades?subject={id}",
+                       "method": "get",
+                       "condition": "has_students == 1"
+                     },
+                     "register": {
+                       "title": "Register course",
+                       "className": "btn btn-info icon-register notext",
+                       "url": "/school-register?subject={id}&class={class}",
+                       "method": "get",
+                       "condition": "has_students == 1 && can_edit == 1"
+                     },
+                     "edit": {
+                       "title": "Edit",
+                       "className": "btn btn-success icon-edit notext",
+                       "condition": "can_edit == 1"
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="course_code" data-sort="course_code" data-i18n>{LNG_Course Code}</th>
+                  <th data-field="course_name" data-sort="course_name" data-i18n>{LNG_Course Name}</th>
+                  <th data-field="type" data-sort="type" class="center" data-cell-class="center" data-format="lookup" data-i18n>{LNG_Type}</th>
+                  <th data-field="teacher" data-sort="teacher_id" class="center" data-cell-class="center" data-i18n>{LNG_Teacher}</th>
+                  <th data-field="year_text" data-sort="year" class="center" data-cell-class="center" data-i18n>{LNG_Academic year}</th>
+                  <th data-field="class" data-sort="class" class="center" data-cell-class="center" data-format="lookup" data-i18n>{LNG_Class}</th>
+                  <th data-field="credit" class="center" data-cell-class="center" data-i18n>{LNG_Credit}</th>
+                  <th data-field="period" class="center" data-cell-class="center" data-i18n>{LNG_Period}</th>
+                  <th data-field="student" class="center" data-cell-class="center" data-i18n>{LNG_Student}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

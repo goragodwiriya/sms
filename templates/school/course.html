@@ -1,0 +1,96 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="schoolCourse" data-validate="true" action="api/school/course/save" method="post" data-ajax-submit="true"
+            data-load-api="api/school/course/get" data-load-query-params="true" data-on-load="initSchoolCourse" autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-elearning" data-text="id ? '{LNG_Edit} {LNG_Course}' : '{LNG_Add} {LNG_Course}'" data-i18n></h1>
+              <p data-i18n>{LNG_Details of} {LNG_Course}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-elearning" data-i18n>{LNG_Details of} {LNG_Course}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="course_code" data-i18n>{LNG_Course Code}</label>
+                  <span class="form-control icon-number">
+                    <input type="text" id="course_code" name="course_code" maxlength="20" data-attr="value:course_code" data-autocomplete="true"
+                           data-source="api/school/course/find" data-min-length="1" data-max-results="10"
+                           data-fill="course_code:code,course_name,period,credit,type">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="course_name" data-i18n>{LNG_Course Name}</label>
+                  <span class="form-control icon-elearning">
+                    <input type="text" id="course_name" name="course_name" maxlength="50" required data-attr="value:course_name">
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="credit" data-i18n>{LNG_Credit}</label>
+                  <span class="form-control icon-number">
+                    <input type="number" id="credit" name="credit" min="0" max="9.9" step="0.1" data-attr="value:credit">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="period" data-i18n>{LNG_Period}</label>
+                  <span class="form-control icon-clock">
+                    <input type="number" id="period" name="period" min="0" data-attr="value:period">
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="type" data-i18n>{LNG_Type}</label>
+                  <span class="form-control icon-category">
+                    <select id="type" name="type" data-options-key="type" data-attr="value:type"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="class" data-i18n>{LNG_Class}</label>
+                  <span class="form-control icon-office">
+                    <select id="class" name="class" data-options-key="class" data-attr="value:class"></select>
+                  </span>
+                </div>
+              </div>
+              <div data-if="is_manager">
+                <label for="teacher_id" data-i18n>{LNG_Teacher}</label>
+                <span class="form-control icon-customer">
+                  <select id="teacher_id" name="teacher_id" data-options-key="teacher_id" data-attr="value:teacher_id"></select>
+                </span>
+                <div class="comment" data-i18n>{LNG_If no instructor is specified. No need to complete the academic year and semester.}</div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="year" data-i18n>{LNG_Academic year}</label>
+                  <span class="form-control icon-calendar">
+                    <input type="number" id="year" name="year" min="0" max="9999" data-attr="value:year">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="term" data-i18n>{LNG_Term}</label>
+                  <span class="form-control icon-category">
+                    <select id="term" name="term" data-options-key="term" data-attr="value:term"></select>
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-save" data-i18n>{LNG_Save}</button>
+              <input type="hidden" name="id" data-attr="value:id">
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

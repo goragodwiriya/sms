@@ -1,0 +1,59 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header data-component="api" data-endpoint="api/school/transcript/info" data-url-params="true" data-url-params-fields="id">
+          <div>
+            <h1 class="icon-elearning" data-text="title" translate="no"></h1>
+            <p><span data-i18n>{LNG_Student ID}</span> <span data-text="student_id"></span></p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-info icon-excel" data-action="click.prevent:exportCsv" data-export-table="schoolTranscript"
+                    data-export-url="api/school/transcript/export" data-i18n>{LNG_Download}</button>
+            <button type="button" class="btn btn-secondary icon-print" data-action="click.prevent:print" data-print-table="schoolTranscript"
+                    data-print-url="api/school/transcript/export?type=print" data-i18n>{LNG_Print}</button>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <form data-table-filter="schoolTranscript" class="table_nav">
+              <div>
+                <label for="transcript_year" data-i18n>{LNG_Academic year}</label>
+                <span class="form-control">
+                  <select id="transcript_year" name="year"></select>
+                </span>
+              </div>
+              <div>
+                <label for="transcript_term" data-i18n>{LNG_Term}</label>
+                <span class="form-control">
+                  <select id="transcript_term" name="term"></select>
+                </span>
+              </div>
+            </form>
+            <table class="table border fullwidth school-transcript-table" data-table="schoolTranscript" data-source="api/school/transcript"
+                   data-default-sort="type asc,course_code asc">
+              <thead>
+                <tr>
+                  <th data-field="course_code" data-i18n>{LNG_Course Code}</th>
+                  <th data-field="course_name" data-i18n>{LNG_Course Name}</th>
+                  <th data-field="type" class="center" data-cell-class="center" data-i18n>{LNG_Type}</th>
+                  <th data-field="credit" class="center" data-cell-class="center" data-i18n>{LNG_Credit}</th>
+                  <th data-field="midterm" class="center" data-cell-class="center" data-i18n>{LNG_Midterm}</th>
+                  <th data-field="final" class="center" data-cell-class="center" data-i18n>{LNG_Final}</th>
+                  <th data-field="grade" class="center" data-cell-class="center" data-template="<span class='school-grade' data-summary='${is_summary}'>${grade}</span>"
+                      data-i18n>{LNG_Grade}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

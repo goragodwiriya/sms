@@ -1,0 +1,60 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-outbox" data-i18n>{LNG_Sent document}</h1>
+            <p data-i18n>{LNG_E-Document}</p>
+          </div>
+          <div>
+            <a class="btn btn-primary icon-new" href="/edocument-write?id=0" data-i18n>{LNG_Send Document}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="edocumentOutbox" data-source="api/edocument/outbox" data-default-sort="last_update desc"
+                   data-page-size="30" data-search-columns="topic,document_no" data-show-checkbox="true" data-actions='{"delete":"Delete"}'
+                   data-action-url="api/edocument/outbox/action" data-action-button="Process|btn-success" data-row-actions='{
+                     "download": {
+                       "title": "Download",
+                       "className": "btn btn-primary icon-download notext"
+                     },
+                     "downloads": {
+                       "title": "Download history",
+                       "className": "btn btn-info icon-report notext",
+                       "url": "/edocument-downloads?id={id}",
+                       "method": "get"
+                     },
+                     "edit": {
+                       "title": "Edit",
+                       "className": "btn btn-success icon-edit notext"
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="document_no" data-sort="document_no" data-cell-class="nowrap" data-i18n>{LNG_Document No.}</th>
+                  <th data-field="urgency" data-sort="urgency" data-formatter="formatEdocumentUrgency" class="center" data-cell-class="center" data-i18n>
+                    {LNG_Urgency}</th>
+                  <th data-field="ext" data-formatter="formatEdocumentExt" class="center" data-cell-class="center"></th>
+                  <th data-field="topic" data-sort="topic" data-i18n>{LNG_Document title}</th>
+                  <th data-field="sender" data-sort="sender_id" class="center" data-cell-class="center" data-filter="true" data-type="select"
+                      data-show-all="true" data-all-value="" data-i18n>{LNG_Sender}</th>
+                  <th data-field="size_text" data-sort="size" class="center" data-cell-class="center nowrap" data-i18n>{LNG_Size of} {LNG_File}</th>
+                  <th data-field="date" data-sort="last_update" class="center" data-cell-class="center nowrap" data-i18n>{LNG_Date}</th>
+                  <th data-field="downloads" data-sort="downloads" class="center" data-cell-class="center" data-i18n>{LNG_Received}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

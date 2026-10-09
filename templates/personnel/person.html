@@ -1,0 +1,126 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="personnelPerson" data-validate="true" action="api/personnel/person/save" method="post" data-ajax-submit="true"
+            data-load-api="api/personnel/person/get" data-load-query-params="true" autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-customer" data-text="id ? '{LNG_Edit} {LNG_Personnel}' : '{LNG_Add} {LNG_Personnel}'" data-i18n></h1>
+              <p data-i18n>{LNG_Details of} {LNG_Personnel}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-write" data-i18n>{LNG_Details of} {LNG_Personnel}</legend>
+              <div>
+                <label for="personnel_name" data-i18n>{LNG_Full Name}</label>
+                <span class="form-control icon-customer">
+                  <input type="text" id="personnel_name" name="name" maxlength="100" required data-attr="value:name">
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="personnel_id_card" data-i18n>{LNG_Identification No.}</label>
+                  <span class="form-control icon-profile">
+                    <input type="text" id="personnel_id_card" name="id_card" maxlength="13" pattern="[0-9]{13}" inputmode="numeric" data-attr="value:id_card">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="personnel_birthday" data-i18n>{LNG_Birthday}</label>
+                  <span class="form-control icon-calendar">
+                    <input type="date" id="personnel_birthday" name="birthday" data-attr="value:birthday">
+                  </span>
+                </div>
+              </div>
+              <div class="comment" data-if="!id" data-i18n>{LNG_Identification No. and birthday used to login}</div>
+              <div class="comment" data-if="id">
+                <label>
+                  <input type="checkbox" name="updatepassword" value="1">&nbsp;<span
+                        data-i18n>{LNG_Update username and password with personal identification number and birthday}</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="personnel_phone" data-i18n>{LNG_Phone}</label>
+                  <span class="form-control icon-phone">
+                    <input type="tel" id="personnel_phone" name="phone" maxlength="20" data-attr="value:phone">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="personnel_order" data-i18n>{LNG_Sequence}</label>
+                  <span class="form-control icon-sort-asc">
+                    <input type="number" id="personnel_order" name="order" min="0" max="255" placeholder="{LNG_Order of persons in positions}" data-attr="value:order">
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="personnel_position" data-i18n>{LNG_Position}</label>
+                  <span class="form-control icon-category">
+                    <select id="personnel_position" name="position" data-options-key="position" data-attr="value:position"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="personnel_department" data-i18n>{LNG_Department}</label>
+                  <span class="form-control icon-category">
+                    <select id="personnel_department" name="department" data-options-key="department" data-attr="value:department"></select>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="personnel_class" data-i18n>{LNG_Class teacher}</label>
+                  <span class="form-control icon-menus">
+                    <select id="personnel_class" name="class" data-options-key="class" data-attr="value:class"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="personnel_room" data-i18n>{LNG_Room}</label>
+                  <span class="form-control icon-menus">
+                    <select id="personnel_room" name="room" data-options-key="room" data-attr="value:room"></select>
+                  </span>
+                </div>
+              </div>
+              <div data-for="item in details">
+                <template>
+                  <div>
+                    <label data-text="item.label"></label>
+                    <span class="form-control icon-edit">
+                      <input type="text" maxlength="150" data-attr="name:item.name,value:item.value">
+                    </span>
+                  </div>
+                </template>
+              </div>
+              <div>
+                <label for="personnel_picture" data-i18n>{LNG_Image}</label>
+                <span class="form-control icon-upload">
+                  <input type="file" id="personnel_picture" name="picture" data-files="picture" data-preview="true" accept="image/*">
+                </span>
+                <div class="comment" id="result_picture" data-text="picture_comment"></div>
+              </div>
+            </fieldset>
+            <fieldset data-if="isAdmin">
+              <legend class="icon-list" data-i18n>{LNG_Permission}</legend>
+              <div>
+                <label for="personnel_permission" data-i18n>{LNG_Permission}</label>
+                <span class="form-control icon-world">
+                  <input type="text" id="personnel_permission" name="permission" data-element="tags" data-attr="value:permission" data-options-key="permission">
+                </span>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-save" data-i18n>{LNG_Save}</button>
+              <input type="hidden" name="id" data-attr="value:id">
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

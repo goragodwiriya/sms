@@ -1,0 +1,89 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="edocumentDocument" data-validate="true" action="api/edocument/document/save" method="post" data-ajax-submit="true"
+            data-load-api="api/edocument/document/get" data-load-query-params="true" enctype="multipart/form-data" autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-write" data-text="id ? '{LNG_Edit} {LNG_Document}' : '{LNG_Send Document}'" data-i18n></h1>
+              <p data-i18n>{LNG_E-Document}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-write" data-i18n>{LNG_Details of} {LNG_Document}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="edocument_document_no" data-i18n>{LNG_Document No.}</label>
+                  <span class="form-control icon-number">
+                    <input type="text" id="edocument_document_no" name="document_no" maxlength="20" data-attr="value:document_no"
+                           placeholder="{LNG_Leave empty for generate auto}" data-i18n>
+                  </span>
+                  <div class="comment" id="result_document_no" data-i18n>{LNG_Registration number of the document}</div>
+                </div>
+                <div class="width50">
+                  <label data-i18n>{LNG_Urgency}</label>
+                  <div class="edocument-choices" data-for="item in urgencies">
+                    <template>
+                      <label>
+                        <input type="radio" name="urgency" data-attr="value:item.value,checked:item.checked">&nbsp;<span data-text="item.text"></span>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="edocument_topic" data-i18n>{LNG_Document title}</label>
+                <span class="form-control icon-edocument">
+                  <input type="text" id="edocument_topic" name="topic" maxlength="255" data-attr="value:topic">
+                </span>
+                <div class="comment" id="result_topic" data-i18n>{LNG_The name of the document when downloaded. If empty, use the name of the uploaded file. (Thai language available)}</div>
+              </div>
+              <div>
+                <label for="edocument_file" data-i18n>{LNG_Browse file}</label>
+                <span class="form-control icon-upload">
+                  <input type="file" id="edocument_file" name="file" data-attr="accept:accept">
+                </span>
+                <div class="comment" id="result_file" data-text="file_comment"></div>
+                <div class="comment" data-if="file_name"><span data-i18n>{LNG_File}</span> : <span data-text="file_name" translate="no"></span></div>
+              </div>
+              <div>
+                <label for="edocument_detail" data-i18n>{LNG_Description}</label>
+                <span class="form-control icon-file">
+                  <textarea id="edocument_detail" name="detail" rows="5" required data-text="detail"></textarea>
+                </span>
+                <div class="comment" id="result_detail" data-i18n>{LNG_Note or additional notes}</div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-users" data-i18n>{LNG_Recipient}</legend>
+              <div class="edocument-choices" data-for="item in receivers">
+                <template>
+                  <label>
+                    <input type="checkbox" name="receiver[]" data-attr="value:item.value,checked:item.checked">&nbsp;<span data-text="item.text"></span>
+                  </label>
+                </template>
+              </div>
+              <div class="comment" id="result_receiver" data-i18n>{LNG_The recipient is listed in the selected group can be downloaded (You can select multiple groups)}</div>
+              <div>
+                <label>
+                  <input type="checkbox" name="send_mail" value="1" data-attr="checked:send_mail">&nbsp;<span data-i18n>{LNG_Send an email to members}</span>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary large icon-save" data-i18n>{LNG_Save}</button>
+              <input type="hidden" name="id" data-attr="value:id">
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

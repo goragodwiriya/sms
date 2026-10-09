@@ -1,0 +1,35 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <form data-form="schoolGradesettings" action="api/school/gradesettings/save" method="post" data-ajax-submit="true"
+        data-load-api="api/school/gradesettings/get" data-load-query-params="true">
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-number" data-i18n>{LNG_Grade calculation}</h1>
+            <p data-i18n>{LNG_School}</p>
+          </div>
+        </header>
+        <div class="content-body">
+          <fieldset class="grid">
+            <div class="tablebody">
+              <table class="table border fullwidth" data-table="schoolGradesettings" data-editable-rows="true" data-attr="data:options"
+                     data-dynamic-columns="true">
+                <tbody></tbody>
+              </table>
+            </div>
+            <aside class="message" data-i18n>{LNG_Set grade calculation conditions for each level, starting from 0 points or subtracting all fields if you want to manually enter grades.}</aside>
+          </fieldset>
+          <fieldset class="submit">
+            <button type="submit" class="btn btn-primary icon-save" data-i18n>{LNG_Save}</button>
+            <a class="btn btn-warning icon-wizard" href="/school-gradesettings?default=1" data-i18n>{LNG_Use default}</a>
+          </fieldset>
+        </div>
+      </div>
+    </main>
+  </form>
+</div>
+<footer class="footer">
+  <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+</footer>

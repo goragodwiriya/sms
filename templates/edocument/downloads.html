@@ -1,0 +1,40 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header id="edocument-downloads-header">
+          <div>
+            <h1 class="icon-report" data-text="'{LNG_Download history} ' + (options.document ? options.document.document_no : '')" data-i18n>
+              {LNG_Download history}</h1>
+            <p data-text="options.document ? options.document.topic : ''" translate="no"></p>
+          </div>
+          <div>
+            <a class="btn btn-secondary icon-outbox" href="/edocument-sent" data-i18n>{LNG_Sent document}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="edocumentDownloads" data-source="api/edocument/downloads" data-default-sort="last_update desc"
+                   data-page-size="30" data-load-query-params="true" data-load-target="#edocument-downloads-header" data-search-columns="name">
+              <thead>
+                <tr>
+                  <th data-field="status" data-sort="status" data-format="lookup" data-options-key="status" class="center" data-cell-class="center"
+                      data-i18n>{LNG_Member status}</th>
+                  <th data-field="name" data-sort="name" data-i18n>{LNG_Name}</th>
+                  <th data-field="date" data-sort="last_update" class="center" data-cell-class="center nowrap" data-i18n>{LNG_Date}</th>
+                  <th data-field="downloads" data-sort="downloads" class="center" data-cell-class="center" data-i18n>{LNG_Download}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

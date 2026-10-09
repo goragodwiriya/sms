@@ -1,0 +1,60 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-customer" data-i18n>{LNG_List of} {LNG_Personnel}</h1>
+            <p data-i18n>{LNG_Can manage the} {LNG_Personnel list}</p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-info icon-excel" data-action="click.prevent:exportCsv" data-export-table="personnelSetup"
+                    data-export-url="api/personnel/setup/export" data-i18n>{LNG_Download} {LNG_Personnel list}</button>
+            <a class="btn btn-primary icon-new" href="/personnel-edit?id=0" data-i18n>{LNG_Add}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="personnelSetup" data-source="api/personnel/setup" data-default-sort="id desc"
+                   data-page-size="30" data-search-columns="name" data-show-checkbox="true" data-actions='{"delete":"Delete"}'
+                   data-action-url="api/personnel/setup/action" data-action-button="Process|btn-success" data-row-actions='{
+                     "view": {
+                       "title": "Details of Personnel",
+                       "className": "btn btn-info icon-info notext"
+                     },
+                     "edit": {
+                       "title": "Edit",
+                       "className": "btn btn-success icon-edit notext"
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="name" data-sort="name" data-i18n>{LNG_Full Name}</th>
+                  <th data-field="active" data-sort="active" class="center" data-cell-class="center" data-filter="true" data-type="select"
+                      data-show-all="true" data-all-value="-1" data-label="Status"
+                      data-template="<button class='btn-table-action' data-action='active' data-value='${active}' title='${active_text}'></button>" data-i18n>
+                    {LNG_Status}</th>
+                  <th data-field="position" data-sort="position" class="center" data-cell-class="center" data-filter="true" data-type="select"
+                      data-show-all="true" data-all-value="" data-format="lookup" data-i18n>{LNG_Position}</th>
+                  <th data-field="department" data-sort="department" class="center" data-cell-class="center" data-filter="true" data-type="select"
+                      data-show-all="true" data-all-value="" data-format="lookup" data-i18n>{LNG_Department}</th>
+                  <th data-field="class_teacher" class="center" data-cell-class="center" data-i18n>{LNG_Class teacher}</th>
+                  <th data-field="order" data-sort="order" class="center" data-cell-class="center" data-cell-element="number" data-min="0" data-max="255"
+                      data-size="5" data-i18n>{LNG_Sequence}</th>
+                  <th data-field="picture" class="center" data-cell-class="center"
+                      data-template="<span class='personnel-thumb' style='background-image:url(${picture})'></span>" data-i18n>{LNG_Image}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

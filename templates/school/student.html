@@ -1,0 +1,130 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="schoolStudent" data-validate="true" action="api/school/student/save" method="post" data-ajax-submit="true"
+            data-load-api="api/school/student/get" data-load-query-params="true" autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-profile" data-text="is_self ? '{LNG_Student information}' : (id ? '{LNG_Edit} {LNG_Student}' : '{LNG_Add} {LNG_Student}')" data-i18n></h1>
+              <p data-i18n>{LNG_Details of} {LNG_Student}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-profile" data-i18n>{LNG_Details of} {LNG_Student}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="student_name" data-i18n>{LNG_Full Name}</label>
+                  <span class="form-control icon-customer">
+                    <input type="text" id="student_name" name="name" maxlength="100" required data-attr="value:name">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="student_student_id" data-i18n>{LNG_Student ID}</label>
+                  <span class="form-control icon-profile">
+                    <input type="text" id="student_student_id" name="student_id" maxlength="13" data-attr="value:student_id,disabled:is_self">
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="student_id_card" data-i18n>{LNG_Identification No.}</label>
+                  <span class="form-control icon-profile">
+                    <input type="text" id="student_id_card" name="id_card" maxlength="13" pattern="[0-9]{13}" inputmode="numeric" data-attr="value:id_card">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="student_birthday" data-i18n>{LNG_Birthday}</label>
+                  <span class="form-control icon-calendar">
+                    <input type="date" id="student_birthday" name="birthday" data-attr="value:birthday">
+                  </span>
+                </div>
+              </div>
+              <div class="comment" data-if="!id" data-i18n>{LNG_Identification No. and birthday used to login}</div>
+              <div class="comment" data-if="id">
+                <label>
+                  <input type="checkbox" name="updatepassword" value="1">&nbsp;<span
+                        data-i18n>{LNG_Update username and password with personal identification number and birthday}</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <div class="width33">
+                  <label for="student_department" data-i18n>{LNG_Department}</label>
+                  <span class="form-control icon-office">
+                    <select id="student_department" name="department" data-options-key="department" data-attr="value:department,disabled:is_self"></select>
+                  </span>
+                </div>
+                <div class="width33">
+                  <label for="student_class" data-i18n>{LNG_Class}</label>
+                  <span class="form-control icon-office">
+                    <select id="student_class" name="class" data-options-key="class" data-attr="value:class,disabled:is_self"></select>
+                  </span>
+                </div>
+                <div class="width33">
+                  <label for="student_room" data-i18n>{LNG_Room}</label>
+                  <span class="form-control icon-office">
+                    <select id="student_room" name="room" data-options-key="room" data-attr="value:room,disabled:is_self"></select>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="student_sex" data-i18n>{LNG_Sex}</label>
+                  <span class="form-control icon-sex">
+                    <select id="student_sex" name="sex" data-options-key="sex" data-attr="value:sex"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="student_phone" data-i18n>{LNG_Phone}</label>
+                  <span class="form-control icon-phone">
+                    <input type="tel" id="student_phone" name="phone" maxlength="20" data-attr="value:phone">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <label for="student_address" data-i18n>{LNG_Address}</label>
+                <span class="form-control icon-address">
+                  <input type="text" id="student_address" name="address" maxlength="100" data-attr="value:address">
+                </span>
+              </div>
+              <div>
+                <label for="student_picture" data-i18n>{LNG_Image}</label>
+                <span class="form-control icon-upload">
+                  <input type="file" id="student_picture" name="picture" data-files="picture" data-preview="true" accept="image/*">
+                </span>
+                <div class="comment" id="result_picture" data-text="picture_comment"></div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-customer" data-i18n>{LNG_Details of} {LNG_Parent}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="student_parent" data-i18n>{LNG_Full Name}</label>
+                  <span class="form-control icon-customer">
+                    <input type="text" id="student_parent" name="parent" maxlength="100" data-attr="value:parent">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="student_parent_phone" data-i18n>{LNG_Phone}</label>
+                  <span class="form-control icon-phone">
+                    <input type="tel" id="student_parent_phone" name="parent_phone" maxlength="32" data-attr="value:parent_phone">
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-save" data-i18n>{LNG_Save}</button>
+              <input type="hidden" name="id" data-attr="value:id">
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

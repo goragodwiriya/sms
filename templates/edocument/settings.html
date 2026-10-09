@@ -1,0 +1,79 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="edocumentSettings" action="api/edocument/settings/save" method="post" data-ajax-submit="true" data-load-api="api/edocument/settings/get"
+            autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-cog" data-i18n>{LNG_Module Settings} {LNG_E-Document}</h1>
+              <p data-i18n>{LNG_E-Document}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-config" data-i18n>{LNG_Module Settings}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="edocument_prefix" data-i18n>{LNG_Prefix}</label>
+                  <span class="form-control icon-number">
+                    <input type="text" id="edocument_prefix" name="edocument_prefix" maxlength="20" placeholder="ที่ ศธ%Y%M-" data-attr="value:edocument_prefix">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="edocument_format_no" data-i18n>{LNG_Document No.}</label>
+                  <span class="form-control icon-number">
+                    <input type="text" id="edocument_format_no" name="edocument_format_no" maxlength="20" placeholder="%04d, ที่ ศธ%Y%M-%04d"
+                           data-attr="value:edocument_format_no">
+                  </span>
+                </div>
+              </div>
+              <div class="comment" data-i18n>{LNG_Prefix, if changed The number will be counted again. You can enter %Y%M (year, month).}, {LNG_Number such as %04d (%04d means 4 digits, maximum 11 digits)}</div>
+              <div>
+                <input type="checkbox" class="switch" id="edocument_send_mail" name="edocument_send_mail" value="1" data-attr="checked:edocument_send_mail">
+                <label for="edocument_send_mail" data-i18n>{LNG_Emailing}</label>
+                <div class="comment" data-i18n>{LNG_When adding a new document Email alert to the recipient. When enabled this option.}</div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-upload" data-i18n>{LNG_Upload}</legend>
+              <div>
+                <label for="edocument_file_typies" data-i18n>{LNG_Type of file uploads}</label>
+                <span class="form-control icon-file">
+                  <input type="text" id="edocument_file_typies" name="edocument_file_typies" required data-attr="value:edocument_file_typies">
+                </span>
+                <div class="comment" id="result_edocument_file_typies" data-i18n>{LNG_Specify the file extension that allows uploading. English lowercase letters and numbers 2-4 characters to separate each type with a comma (,) and without spaces. eg zip,rar,doc,docx}</div>
+              </div>
+              <div>
+                <label for="edocument_upload_size" data-i18n>{LNG_Size of the file upload}</label>
+                <span class="form-control icon-upload">
+                  <select id="edocument_upload_size" name="edocument_upload_size" data-options-key="edocument_upload_size"
+                          data-attr="value:edocument_upload_size"></select>
+                </span>
+                <div class="comment" data-text="upload_size_comment"></div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-download" data-i18n>{LNG_Download}</legend>
+              <div>
+                <label for="edocument_download_action" data-i18n>{LNG_When download}</label>
+                <span class="form-control icon-download">
+                  <select id="edocument_download_action" name="edocument_download_action" data-options-key="edocument_download_action"
+                          data-attr="value:edocument_download_action"></select>
+                </span>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary large icon-save" data-i18n>{LNG_Save}</button>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

@@ -1,0 +1,145 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="schoolSettings" action="api/school/settings/save" method="post" data-ajax-submit="true" data-load-api="api/school/settings/get"
+            autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-cog" data-i18n>{LNG_Module Settings} {LNG_School}</h1>
+              <p data-i18n>{LNG_School}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-config" data-i18n>{LNG_Module Settings}</legend>
+              <div>
+                <label for="school_name" data-i18n>{LNG_School Name}</label>
+                <span class="form-control icon-user">
+                  <input type="text" id="school_name" name="school_name" maxlength="150" data-attr="value:school_name">
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="school_phone" data-i18n>{LNG_Phone}</label>
+                  <span class="form-control icon-phone">
+                    <input type="text" id="school_phone" name="phone" maxlength="32" data-attr="value:phone">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="school_fax" data-i18n>{LNG_Fax}</label>
+                  <span class="form-control icon-print">
+                    <input type="text" id="school_fax" name="fax" maxlength="32" data-attr="value:fax">
+                  </span>
+                </div>
+              </div>
+              <div>
+                <label for="school_address" data-i18n>{LNG_Address}</label>
+                <span class="form-control icon-location">
+                  <input type="text" id="school_address" name="address" maxlength="150" data-attr="value:address">
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="width25">
+                  <label for="school_province" data-i18n>{LNG_Province}</label>
+                  <span class="form-control icon-location">
+                    <input type="text" id="school_province" name="province" maxlength="50" data-attr="value:province">
+                  </span>
+                </div>
+                <div class="width25">
+                  <label for="school_provinceID" data-i18n>{LNG_Province}</label>
+                  <span class="form-control icon-location">
+                    <select id="school_provinceID" name="provinceID" data-options-key="provinceID" data-attr="value:provinceID"></select>
+                  </span>
+                </div>
+                <div class="width25">
+                  <label for="school_zipcode" data-i18n>{LNG_Zipcode}</label>
+                  <span class="form-control icon-location">
+                    <input type="text" id="school_zipcode" name="zipcode" maxlength="5" data-attr="value:zipcode">
+                  </span>
+                </div>
+                <div class="width25">
+                  <label for="school_country" data-i18n>{LNG_Country}</label>
+                  <span class="form-control icon-location">
+                    <select id="school_country" name="country" data-options-key="country" data-attr="value:country"></select>
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-portfolio" data-i18n>{LNG_Size of} {LNG_Image} ({LNG_Student})</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="student_w" data-i18n>{LNG_Width}</label>
+                  <span class="form-control icon-width">
+                    <input type="number" id="student_w" name="student_w" min="100" max="4000" data-attr="value:student_w">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="student_h" data-i18n>{LNG_Height}</label>
+                  <span class="form-control icon-height">
+                    <input type="number" id="student_h" name="student_h" min="100" max="4000" data-attr="value:student_h">
+                  </span>
+                </div>
+              </div>
+              <div class="comment" data-i18n>{LNG_Image size is in pixels} {LNG_Uploaded images are resized automatically}</div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-excel" data-i18n>{LNG_Import}/{LNG_Export}</legend>
+              <div>
+                <label for="csv_language" data-i18n>{LNG_Language}</label>
+                <span class="form-control icon-excel">
+                  <select id="csv_language" name="csv_language" data-options-key="csv_language" data-attr="value:csv_language"></select>
+                </span>
+                <div class="comment" data-i18n>{LNG_The language code of the CSV file used for data import-export}</div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-star0" data-i18n>{LNG_Member status}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="teacher_status" data-i18n>{LNG_Teacher}</label>
+                  <span class="form-control icon-customer">
+                    <select id="teacher_status" name="teacher_status" data-options-key="teacher_status" data-attr="value:teacher_status"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="student_status" data-i18n>{LNG_Student}</label>
+                  <span class="form-control icon-user">
+                    <select id="student_status" name="student_status" data-options-key="student_status" data-attr="value:student_status"></select>
+                  </span>
+                </div>
+              </div>
+              <div class="comment" data-i18n>{LNG_Assign memberships based on member status}</div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-elearning" data-i18n>{LNG_Current Academic Year}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="academic_year" data-i18n>{LNG_Academic year}</label>
+                  <span class="form-control icon-calendar">
+                    <input type="number" id="academic_year" name="academic_year" min="1" max="9999" data-attr="value:academic_year">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="school_term" data-i18n>{LNG_Term}</label>
+                  <span class="form-control icon-category">
+                    <select id="school_term" name="term" data-options-key="term" data-attr="value:term"></select>
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-save" data-i18n>{LNG_Save}</button>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

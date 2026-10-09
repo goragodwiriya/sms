@@ -1,0 +1,45 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="personnelSettings" action="api/personnel/settings/save" method="post" data-ajax-submit="true" data-load-api="api/personnel/settings/get"
+            autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-cog" data-i18n>{LNG_Module Settings} {LNG_Personnel}</h1>
+              <p data-i18n>{LNG_Personnel}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-portfolio" data-i18n>{LNG_Image}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="personnel_w" data-i18n>{LNG_Width}</label>
+                  <span class="form-control icon-width">
+                    <input type="number" id="personnel_w" name="personnel_w" min="100" max="4000" data-attr="value:personnel_w">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="personnel_h" data-i18n>{LNG_Height}</label>
+                  <span class="form-control icon-height">
+                    <input type="number" id="personnel_h" name="personnel_h" min="100" max="4000" data-attr="value:personnel_h">
+                  </span>
+                </div>
+              </div>
+              <div class="comment" data-i18n>{LNG_Image size is in pixels} {LNG_Uploaded images are resized automatically}</div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-save" data-i18n>{LNG_Save}</button>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

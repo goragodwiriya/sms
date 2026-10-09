@@ -1,0 +1,42 @@
+/* modules/edocument/styles.css */
+/* ขนาดตายตัว — max-width: 100% ของธีมทำให้รูปในคอลัมน์ที่ไม่มีหัวตารางหดเหลือไม่กี่พิกเซล */
+.edocument-ext {
+  width: 24px;
+  min-width: 24px;
+  max-width: none;
+  height: 24px;
+  vertical-align: middle;
+}
+.edocument-new {
+  color: var(--color-error, #d32f2f);
+}
+.edocument-received {
+  color: var(--color-success, #259b24);
+}
+.edocument-urgency {
+  display: inline-block;
+  padding: 1px var(--space-2, 8px);
+  border-radius: var(--radius-sm, 4px);
+  white-space: nowrap;
+}
+.edocument-urgency.urgency-0 {
+  color: #fff;
+  background-color: var(--color-error, #d32f2f);
+}
+.edocument-urgency.urgency-1 {
+  color: #fff;
+  background-color: var(--color-warning, #f57c00);
+}
+.edocument-view th {
+  width: 30%;
+  white-space: nowrap;
+}
+.edocument-view .edocument-detail {
+  white-space: pre-line;
+}
+.edocument-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2, 8px) var(--space-4, 16px);
+  padding: var(--space-2, 8px) 0;
+}

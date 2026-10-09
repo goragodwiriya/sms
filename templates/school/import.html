@@ -1,0 +1,157 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="schoolImport" action="api/school/import/save" method="post" data-ajax-submit="true" data-load-api="api/school/import/get"
+            data-load-query-params="true" autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-import" data-text="title" data-i18n></h1>
+              <p data-i18n>{LNG_School}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <!-- นักเรียน: หมวดหมู่ตั้งต้นของนักเรียนในไฟล์ (ช่องในไฟล์ว่าง = ใช้ค่านี้) -->
+            <fieldset data-if="type == 'student'">
+              <legend class="icon-import" data-i18n>{LNG_Import} {LNG_Student list}</legend>
+              <div class="form-group">
+                <div class="width33">
+                  <label for="import_department" data-i18n>{LNG_Department}</label>
+                  <span class="form-control icon-office">
+                    <select id="import_department" name="department" data-options-key="department" data-attr="value:department"></select>
+                  </span>
+                </div>
+                <div class="width33">
+                  <label for="import_class" data-i18n>{LNG_Class}</label>
+                  <span class="form-control icon-office">
+                    <select id="import_class" name="class" data-options-key="class" data-attr="value:class"></select>
+                  </span>
+                </div>
+                <div class="width33">
+                  <label for="import_room" data-i18n>{LNG_Room}</label>
+                  <span class="form-control icon-office">
+                    <select id="import_room" name="room" data-options-key="room" data-attr="value:room"></select>
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <!-- รายวิชา -->
+            <fieldset data-if="type == 'course'">
+              <legend class="icon-import" data-i18n>{LNG_Import} {LNG_Course}</legend>
+              <div>
+                <label for="import_teacher" data-i18n>{LNG_Teacher}</label>
+                <span class="form-control icon-customer">
+                  <select id="import_teacher" name="teacher_id" data-options-key="teacher_id" data-attr="value:teacher_id,disabled:!is_manager"></select>
+                </span>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="import_course_year" data-i18n>{LNG_Academic year}</label>
+                  <span class="form-control icon-calendar">
+                    <input type="number" id="import_course_year" name="year" min="0" max="9999" data-attr="value:year">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="import_course_term" data-i18n>{LNG_Term}</label>
+                  <span class="form-control icon-category">
+                    <select id="import_course_term" name="term" data-options-key="term" data-attr="value:term"></select>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="import_typ" data-i18n>{LNG_Type}</label>
+                  <span class="form-control icon-category">
+                    <select id="import_typ" name="typ" data-options-key="typ" data-attr="value:typ"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="import_course_class" data-i18n>{LNG_Class}</label>
+                  <span class="form-control icon-office">
+                    <select id="import_course_class" name="class" data-options-key="class" data-attr="value:class"></select>
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <!-- ผลการเรียน -->
+            <fieldset data-if="type == 'grade'">
+              <legend class="icon-import" data-i18n>{LNG_Import} {LNG_Grade}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="import_course" data-i18n>{LNG_Course}</label>
+                  <span class="form-control icon-elearning">
+                    <select id="import_course" name="course" data-options-key="course" data-attr="value:course"></select>
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="import_grade_room" data-i18n>{LNG_Room}</label>
+                  <span class="form-control icon-group">
+                    <select id="import_grade_room" name="room" data-options-key="room" data-attr="value:room"></select>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="import_grade_year" data-i18n>{LNG_Academic year}</label>
+                  <span class="form-control icon-calendar">
+                    <input type="number" id="import_grade_year" name="year" min="0" max="9999" data-attr="value:year">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="import_grade_term" data-i18n>{LNG_Term}</label>
+                  <span class="form-control icon-category">
+                    <select id="import_grade_term" name="term" data-options-key="term" data-attr="value:term"></select>
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div>
+                <label for="school_import_file" data-i18n>{LNG_Browse file}</label>
+                <span class="form-control icon-excel">
+                  <input type="file" id="school_import_file" name="import" accept=".csv">
+                </span>
+                <div class="comment" id="result_import"><span data-i18n>{LNG_File size is less than}</span> <span data-text="max_size"></span></div>
+              </div>
+              <div class="message">
+                <ol>
+                  <li><span data-i18n>{LNG_Import data only into the original file according to this example}</span>
+                    <a href="#" data-action="click.prevent:schoolImportSample" data-sample-url="api/school/import/sample"
+                       data-text="type + '.csv'"></a></li>
+                  <li data-if="type == 'grade'" data-i18n>{LNG_If students are registered in the selected course, the sample file will contain the students of the selected data}</li>
+                  <li data-if="type != 'grade'" data-i18n>{LNG_Fields marked with * are required}</li>
+                  <li data-if="type != 'grade'" data-i18n>{LNG_Fields marked with ** cannot have duplicate data}</li>
+                  <li data-if="type == 'grade'" data-i18n>{LNG_Fill in all fields}</li>
+                  <li data-if="type == 'student'"><span data-for="item in categories"><template><a data-attr="href:item.url" data-text="item.text"></a>, </template></span><span
+                          data-i18n>{LNG_Enter the ID of the data}</span> <span data-i18n>{LNG_(The downloaded sample file specifies the correct values according to the options above)}</span></li>
+                  <li data-if="type == 'course'"><span data-i18n>{LNG_Term}, {LNG_Type}, {LNG_Class}</span> <span data-i18n>{LNG_Enter the ID of the data}</span>
+                    <span data-i18n>{LNG_(The downloaded sample file specifies the correct values according to the options above)}</span></li>
+                  <li data-if="type == 'course'" data-i18n>{LNG_If you only want to save the course to the database, do not specify the teacher}</li>
+                  <li data-if="type == 'course'" data-i18n>{LNG_If the teacher is specified, the academic year and semester must also be specified}</li>
+                  <li data-if="type == 'student'" data-i18n>{LNG_To be able to login, fill in both the Identification No. and Birthday fields}</li>
+                  <li data-if="type == 'grade'" data-i18n>{LNG_If you only want to register, the grade field can be left blank}</li>
+                  <li data-if="type == 'grade'" data-i18n>{LNG_Items with incorrect data will be skipped}</li>
+                  <li data-if="type != 'grade'" data-i18n>{LNG_Items with incorrect or duplicate data will be skipped}</li>
+                  <li data-i18n>{LNG_The system will notify you how many items were successfully imported. If it is not equal to the data entered, there are incorrect items. Please check the original file}</li>
+                  <li data-if="type == 'grade'" data-i18n>{LNG_You can edit the original file and import again. The latest grades will be updated}</li>
+                  <li data-if="type != 'grade'" data-i18n>{LNG_You can edit the original file and import again. The system will skip items that have already been imported}</li>
+                  <li><span data-i18n>{LNG_If you import a file from another source, please check the file format}</span> <strong><span
+                            data-i18n>{LNG_CSV file encoding}</span> <span data-text="encoding"></span></strong></li>
+                </ol>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-import" data-i18n>{LNG_Import}</button>
+              <input type="hidden" name="type" data-attr="value:type">
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

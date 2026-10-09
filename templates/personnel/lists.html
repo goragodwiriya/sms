@@ -1,0 +1,49 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-customer" data-i18n>{LNG_Personnel list}</h1>
+            <p data-i18n>{LNG_List of} {LNG_Current personnel}</p>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="personnelLists" data-source="api/personnel/lists" data-default-sort="position asc,order asc"
+                   data-page-size="30" data-search-columns="name" data-action-url="api/personnel/lists/action" data-row-actions='{
+                     "view": {
+                       "title": "Details of Personnel",
+                       "className": "btn btn-info icon-info notext"
+                     },
+                     "edit": {
+                       "title": "Edit",
+                       "className": "btn btn-success icon-edit notext",
+                       "condition": "can_edit == 1"
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="name" data-sort="name" data-i18n>{LNG_Full Name}</th>
+                  <th data-field="position" data-sort="position" class="center" data-cell-class="center" data-filter="true" data-type="select"
+                      data-show-all="true" data-all-value="" data-format="lookup" data-i18n>{LNG_Position}</th>
+                  <th data-field="department" data-sort="department" class="center" data-cell-class="center" data-filter="true" data-type="select"
+                      data-show-all="true" data-all-value="" data-format="lookup" data-i18n>{LNG_Department}</th>
+                  <th data-field="picture" class="center" data-cell-class="center"
+                      data-template="<span class='personnel-thumb' style='background-image:url(${picture})'></span>" data-i18n>{LNG_Image}</th>
+                  <th data-field="class_teacher" class="center" data-cell-class="center" data-i18n>{LNG_Class teacher}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

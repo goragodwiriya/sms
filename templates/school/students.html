@@ -1,0 +1,94 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-users" data-i18n>{LNG_Student list}</h1>
+            <p data-i18n>{LNG_School}</p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-info icon-excel" data-action="click.prevent:exportCsv" data-export-table="schoolStudents"
+                    data-export-url="api/school/students/export" data-i18n>{LNG_Download} {LNG_Student list}</button>
+            <a class="btn btn-primary icon-new" href="/school-student?id=0" data-i18n>{LNG_Add} {LNG_Student}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <form data-table-filter="schoolStudents" class="table_nav">
+              <div>
+                <label for="students_department" data-i18n>{LNG_Department}</label>
+                <span class="form-control">
+                  <select id="students_department" name="department">
+                    <option value="" data-i18n>{LNG_all items}</option>
+                  </select>
+                </span>
+              </div>
+              <div>
+                <label for="students_class" data-i18n>{LNG_Class}</label>
+                <span class="form-control">
+                  <select id="students_class" name="class">
+                    <option value="" data-i18n>{LNG_all items}</option>
+                  </select>
+                </span>
+              </div>
+              <div>
+                <label for="students_room" data-i18n>{LNG_Room}</label>
+                <span class="form-control">
+                  <select id="students_room" name="room">
+                    <option value="" data-i18n>{LNG_all items}</option>
+                  </select>
+                </span>
+              </div>
+              <div>
+                <label for="students_active" data-i18n>{LNG_Status}</label>
+                <span class="form-control">
+                  <select id="students_active" name="active"></select>
+                </span>
+              </div>
+              <input type="search" name="search" placeholder="{LNG_Search}...">
+            </form>
+            <table class="table border fullwidth" data-table="schoolStudents" data-source="api/school/students" data-default-sort="id desc"
+                   data-page-size="30" data-action-url="api/school/students/action"
+                   data-action-button="Process|btn-success" data-row-actions='{
+                     "view": {
+                       "title": "Details of Student",
+                       "className": "btn btn-info icon-info notext"
+                     },
+                     "report": {
+                       "title": "Grade Report",
+                       "className": "btn btn-primary icon-elearning notext",
+                       "url": "{report_url}",
+                       "method": "get"
+                     },
+                     "edit": {
+                       "title": "Edit",
+                       "className": "btn btn-success icon-edit notext",
+                       "condition": "can_edit == 1"
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="number" data-sort="number" class="center" data-cell-class="center" data-cell-element="number" data-min="0"
+                      data-size="5" data-i18n>{LNG_Number}</th>
+                  <th data-field="student_id" data-sort="student_id" data-i18n>{LNG_Student ID}</th>
+                  <th data-field="name" data-sort="name" data-i18n>{LNG_Full Name}</th>
+                  <th data-field="phone" class="center" data-cell-class="center" data-template="<a href='tel:${phone}'>${phone}</a>" data-i18n>{LNG_Phone}</th>
+                  <th data-field="department" data-sort="department" class="center" data-cell-class="center" data-format="lookup" data-i18n>{LNG_Department}</th>
+                  <th data-field="class" data-sort="class" class="center" data-cell-class="center" data-format="lookup" data-i18n>{LNG_Class}</th>
+                  <th data-field="room" data-sort="room" class="center" data-cell-class="center" data-format="lookup" data-i18n>{LNG_Room}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

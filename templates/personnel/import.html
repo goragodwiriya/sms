@@ -1,0 +1,53 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form data-form="personnelImport" action="api/personnel/import/save" method="post" data-ajax-submit="true" data-load-api="api/personnel/import/get"
+            autocomplete="off">
+        <div class="card-groups">
+          <header>
+            <div>
+              <h1 class="icon-import" data-i18n>{LNG_Import} {LNG_Personnel list}</h1>
+              <p data-i18n>{LNG_Personnel}</p>
+            </div>
+          </header>
+          <div class="content-body">
+            <fieldset>
+              <legend class="icon-import" data-i18n>{LNG_Import} {LNG_Personnel list}</legend>
+              <div>
+                <label for="personnel_import" data-i18n>{LNG_Browse file}</label>
+                <span class="form-control icon-excel">
+                  <input type="file" id="personnel_import" name="import" accept=".csv" required>
+                </span>
+                <div class="comment" id="result_import"><span data-i18n>{LNG_File size is less than}</span> <span data-text="max_size"></span></div>
+              </div>
+              <div class="message">
+                <ol>
+                  <li><span data-i18n>{LNG_Import data only into the original file according to this example}</span>
+                    <a href="api/personnel/import/sample" target="_blank" rel="noopener">personnel.csv</a></li>
+                  <li data-i18n>{LNG_Fields marked with * are required}</li>
+                  <li data-i18n>{LNG_Fields marked with ** cannot have duplicate data}</li>
+                  <li><span data-for="item in categories"><template><a data-attr="href:item.url" data-text="item.text"></a>, </template></span><span
+                          data-i18n>{LNG_Class}, {LNG_Room}</span> <span data-i18n>{LNG_Enter the ID of the data}</span></li>
+                  <li data-i18n>{LNG_To be able to login, fill in both the Identification No. and Birthday fields}</li>
+                  <li data-i18n>{LNG_Items with incorrect or duplicate data will be skipped}</li>
+                  <li data-i18n>{LNG_The system will notify you how many items were successfully imported. If it is not equal to the data entered, there are incorrect items. Please check the original file}</li>
+                  <li data-i18n>{LNG_You can edit the original file and import again. The system will skip items that have already been imported}</li>
+                  <li><span data-i18n>{LNG_If you import a file from another source, please check the file format}</span> <strong><span data-i18n>{LNG_CSV file
+                        encoding}</span> <span data-text="encoding"></span></strong></li>
+                </ol>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-import" data-i18n>{LNG_Import}</button>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

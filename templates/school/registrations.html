@@ -1,0 +1,54 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header data-component="api" data-endpoint="api/school/registrations/info" data-url-params="true" data-url-params-fields="subject">
+          <div>
+            <h1 class="icon-register" data-text="title" translate="no"></h1>
+            <p data-i18n>{LNG_Select the students to register for this course}</p>
+          </div>
+          <div>
+            <a class="btn btn-secondary icon-users" data-attr="href:'/school-grades?subject=' + id" data-i18n>{LNG_Student} {LNG_Grade}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="schoolRegistrations" data-source="api/school/registrations"
+                   data-default-sort="class asc,room asc,number asc" data-page-size="50" data-search-columns="name,student_id" data-show-checkbox="true"
+                   data-actions='{"register":"Register course"}' data-action-url="api/school/registrations/action" data-action-params="subject"
+                   data-action-button="Process|btn-success" data-row-actions='{
+                     "view": {
+                       "title": "Details of Student",
+                       "className": "btn btn-info icon-info notext",
+                       "url": "api/school/student/view",
+                       "method": "get",
+                       "navigate": false,
+                       "params": {"id": "{id}"}
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="number" data-sort="number" class="center" data-cell-class="center" data-i18n>{LNG_Number}</th>
+                  <th data-field="student_id" data-sort="student_id" data-i18n>{LNG_Student ID}</th>
+                  <th data-field="name" data-sort="name" data-i18n>{LNG_Full Name}</th>
+                  <th data-field="registered" data-sort="registered" class="center" data-cell-class="center"
+                      data-template="<span class='school-registered icon-valid' data-value='${registered}'></span>" data-i18n>{LNG_Register course}</th>
+                  <th data-field="class" data-sort="class" class="center" data-cell-class="center" data-filter="true" data-type="select" data-show-all="true"
+                      data-all-value="" data-format="lookup" data-i18n>{LNG_Class}</th>
+                  <th data-field="room" data-sort="room" class="center" data-cell-class="center" data-filter="true" data-type="select" data-show-all="true"
+                      data-all-value="" data-format="lookup" data-i18n>{LNG_Room}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>
