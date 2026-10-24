@@ -1,0 +1,22 @@
+/* modules/personnel/styles.css */
+/* รูปในตารางเป็นพื้นหลังแบบเดียวกับ .usericon ของตารางสมาชิก — <img src='${...}'>
+   ใน data-template ถูกโหลดตอน URL ยังเป็นตัวกั้น %%NOWCELL0%% (ได้ 400 ทุกครั้งที่เปิดหน้า) */
+.personnel-thumb {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  vertical-align: middle;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-sm, 4px);
+}
+.personnel-picture {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: var(--radius-sm, 4px);
+}
+.personnel-view th {
+  width: 35%;
+  white-space: nowrap;
+}

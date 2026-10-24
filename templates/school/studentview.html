@@ -1,0 +1,48 @@
+<!-- modal รายละเอียดของนักเรียน (api/school/students/action view และ api/school/student/view) -->
+<article class="school-view">
+  <p class="center"><img class="school-picture" data-attr="src:picture" alt="picture"></p>
+  <table class="table fullwidth">
+    <tbody>
+      <tr>
+        <th class="icon-customer" data-i18n>{LNG_Full Name}</th>
+        <td data-text="name" translate="no"></td>
+      </tr>
+      <tr>
+        <th class="icon-number" data-i18n>{LNG_Student ID}</th>
+        <td data-text="student_id"></td>
+      </tr>
+    </tbody>
+    <tbody data-for="item in categories">
+      <template>
+        <tr>
+          <th class="icon-office" data-text="item.label"></th>
+          <td data-text="item.value" translate="no"></td>
+        </tr>
+      </template>
+    </tbody>
+    <tbody data-if="can_config">
+      <tr>
+        <th class="icon-profile" data-i18n>{LNG_Identification No.}</th>
+        <td data-text="id_card"></td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="icon-address" data-i18n>{LNG_Address}</th>
+        <td data-text="address" translate="no"></td>
+      </tr>
+      <tr>
+        <th class="icon-phone" data-i18n>{LNG_Phone}</th>
+        <td><a data-attr="href:'tel:' + phone" data-text="phone"></a></td>
+      </tr>
+      <tr>
+        <th class="icon-customer" data-i18n>{LNG_Parent}</th>
+        <td data-text="parent" translate="no"></td>
+      </tr>
+      <tr>
+        <th class="icon-phone" data-i18n>{LNG_Phone} ({LNG_Parent})</th>
+        <td><a data-attr="href:'tel:' + parent_phone" data-text="parent_phone"></a></td>
+      </tr>
+    </tbody>
+  </table>
+</article>

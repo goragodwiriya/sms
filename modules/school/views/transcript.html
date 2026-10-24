@@ -1,0 +1,47 @@
+<!-- แบบรายงานประจำตัวนักเรียน (พิมพ์จากหน้ารายงานผลการเรียน)
+     School\Transcript\Controller::handlePrintExport() แทนที่ %...% แล้วห่อด้วย
+     Export\Export\Controller::printHtml() -->
+<div class="print-bar noprint">
+  <div><button type="button" class="print-button noprint" onclick="window.print()">{LNG_Print}</button></div>
+</div>
+<section class="sheet school-transcript">
+  <h1>{LNG_Student Identification Form}</h1>
+  <table class="school-transcript-head">
+    <tr>
+      <td>
+        <h2>%SCHOOLNAME%</h2>
+      </td>
+      <td>
+        <h2>{LNG_Province} %SCHOOLPROVINCE%</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">{LNG_Class} %CLASS%</td>
+      <td class="center">{LNG_Academic year} %YEAR%/%TERM%</td>
+    </tr>
+  </table>
+  <table class="school-transcript-head">
+    <tr>
+      <td class="center">{LNG_Full Name} %NAME%</td>
+      <td class="center">{LNG_Student ID} %STUDENT%</td>
+      <td class="center">{LNG_Room} %ROOM%</td>
+      <td class="center">{LNG_Number} %NUMBER%</td>
+    </tr>
+  </table>
+  <table class="border school-transcript-grades">
+    <thead>
+      <tr>%THEAD%</tr>
+    </thead>
+    <tbody>
+      %TBODY%
+    </tbody>
+  </table>
+  <table class="school-transcript-sum">
+    <tr>
+      <td>{LNG_Credits in this semester}</td>
+      <td>%CREDITS%</td>
+      <td>{LNG_Grades in this semester}</td>
+      <td>%GRADES%</td>
+    </tr>
+  </table>
+</section>

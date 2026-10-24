@@ -1,0 +1,41 @@
+/**
+ * modules/school/views/print.css
+ * แบบรายงานประจำตัวนักเรียน — ต่อยอดจาก modules/export/views/print.css (ขนาดกระดาษ A4, ฟอนต์ Sarabun)
+ */
+.school-transcript h1,
+.school-transcript h2 {
+  margin: 0;
+  text-align: center;
+  font-weight: normal;
+}
+.school-transcript h1 {
+  font-size: var(--t-lg, 15pt);
+  margin-bottom: var(--sp-3, 3mm);
+}
+.school-transcript h2 {
+  font-size: var(--t-md, 11.5pt);
+}
+.school-transcript table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: var(--sp-3, 3mm);
+}
+.school-transcript td,
+.school-transcript th {
+  padding: 1mm 2mm;
+  font-weight: normal;
+}
+.school-transcript .center {
+  text-align: center;
+}
+.school-transcript-grades th,
+.school-transcript-grades td {
+  border: 1px solid var(--border, #000);
+}
+.school-transcript-grades thead th {
+  background-color: #eee;
+}
+.school-transcript-sum {
+  width: auto !important;
+}

@@ -1,0 +1,49 @@
+<!-- modal รายละเอียดหนังสือ เปิดจาก row action "detail" ของหนังสือรับ (api/edocument/inbox/action) -->
+<article class="edocument-view">
+  <table class="table fullwidth">
+    <tbody>
+      <tr>
+        <th class="icon-number" data-i18n>{LNG_Document No.}</th>
+        <td data-text="document_no"></td>
+      </tr>
+      <tr>
+        <th class="icon-clock" data-i18n>{LNG_Urgency}</th>
+        <td><span class="edocument-urgency" data-class="'urgency-' + urgency" data-text="urgency_text"></span></td>
+      </tr>
+      <tr>
+        <th class="icon-edocument" data-i18n>{LNG_Document title}</th>
+        <td data-text="topic" translate="no"></td>
+      </tr>
+      <tr>
+        <th class="icon-customer" data-i18n>{LNG_Sender}</th>
+        <td data-text="sender" translate="no"></td>
+      </tr>
+      <tr>
+        <th class="icon-calendar" data-i18n>{LNG_Date}</th>
+        <td data-text="date"></td>
+      </tr>
+      <tr>
+        <th class="icon-file" data-i18n>{LNG_Size of} {LNG_File}</th>
+        <td data-text="size_text"></td>
+      </tr>
+      <tr>
+        <th class="icon-edit top" data-i18n>{LNG_Detail}</th>
+        <td class="edocument-detail" data-text="detail" translate="no"></td>
+      </tr>
+      <tr>
+        <th class="icon-star0" data-i18n>{LNG_Status}</th>
+        <td>
+          <span class="icon-email edocument-new" data-if="is_new" data-i18n>{LNG_New}</span>
+          <span class="icon-valid edocument-received" data-if="!is_new" data-i18n>{LNG_Received}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- ดาวน์โหลด = ลงชื่อรับหนังสือ (api/edocument/view/download บันทึกการรับแล้วส่งไฟล์) -->
+  <form data-form="edocumentDownload" action="api/edocument/view/download" method="post" data-ajax-submit="true">
+    <fieldset class="submit">
+      <button type="submit" class="btn btn-primary large icon-download" data-i18n>{LNG_Download}</button>
+      <input type="hidden" name="id" data-attr="value:id">
+    </fieldset>
+  </form>
+</article>

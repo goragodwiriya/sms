@@ -1,0 +1,21 @@
+/* modules/school/styles.css */
+.school-picture {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: var(--radius-sm, 4px);
+}
+.school-view th {
+  width: 35%;
+  white-space: nowrap;
+}
+/* ลงทะเบียนแล้ว = เครื่องหมายสีเขียว ยังไม่ลงทะเบียน = สีจาง */
+.school-registered[data-value="0"] {
+  opacity: 0.25;
+}
+.school-registered[data-value="1"] {
+  color: var(--success, #2e7d32);
+}
+/* แถวสรุปหน่วยกิต/เกรดเฉลี่ยท้ายรายงานผลการเรียน */
+.school-grade[data-summary="1"] {
+  font-weight: bold;
+}

@@ -1,0 +1,44 @@
+<!-- modal รายละเอียดของบุคลากร เปิดจาก row action "view" (api/personnel/setup/action) -->
+<article class="personnel-view">
+  <p class="center"><img class="personnel-picture" data-attr="src:picture" alt="picture"></p>
+  <table class="table fullwidth">
+    <tbody>
+      <tr>
+        <th class="icon-customer" data-i18n>{LNG_Full Name}</th>
+        <td data-text="name" translate="no"></td>
+      </tr>
+      <tr>
+        <th class="icon-phone" data-i18n>{LNG_Phone}</th>
+        <td><a data-attr="href:'tel:' + phone" data-text="phone"></a></td>
+      </tr>
+    </tbody>
+    <tbody data-for="item in categories">
+      <template>
+        <tr>
+          <th class="icon-category" data-text="item.label"></th>
+          <td data-text="item.value" translate="no"></td>
+        </tr>
+      </template>
+    </tbody>
+    <tbody data-if="class_teacher">
+      <tr>
+        <th class="icon-verfied" data-i18n>{LNG_Class teacher}</th>
+        <td data-text="class_teacher" translate="no"></td>
+      </tr>
+    </tbody>
+    <tbody data-if="can_manage">
+      <tr>
+        <th class="icon-profile" data-i18n>{LNG_Identification No.}</th>
+        <td data-text="id_card"></td>
+      </tr>
+    </tbody>
+    <tbody data-for="item in details">
+      <template>
+        <tr>
+          <th class="icon-edit" data-text="item.label"></th>
+          <td data-text="item.value" translate="no"></td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</article>
