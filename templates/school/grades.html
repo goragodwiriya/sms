@@ -1,0 +1,50 @@
+<div class="card-groups">
+  <header data-component="api" data-endpoint="api/school/grades/info" data-url-params="true" data-url-params-fields="subject">
+    <div>
+      <h1 class="icon-elearning"><span><span data-i18n>{LNG_Grade} {LNG_Course}</span> <span data-text="course_name" translate="no"></span><span data-if="course_code" translate="no"> (<span data-text="course_code"></span>)</span><span data-if="year"> <span data-i18n>{LNG_Academic year}</span> <span data-text="year + '/' + term" translate="no"></span></span></span></h1>
+      <p data-i18n>{LNG_Student} {LNG_Grade}</p>
+    </div>
+    <div>
+      <button type="button" class="btn btn-info icon-excel" data-action="click.prevent:exportCsv" data-export-table="schoolGrades"
+              data-export-url="api/school/grades/export" data-i18n>{LNG_Download} {LNG_Grade}</button>
+      <a class="btn btn-primary icon-register" data-if="can_register" data-attr="href:'/school-register?subject=' + id + '&class=' + class"
+         data-i18n>{LNG_Register course}</a>
+    </div>
+  </header>
+  <div class="content-body">
+    <div class="tablebody">
+      <table class="table border fullwidth" data-table="schoolGrades" data-source="api/school/grades" data-default-sort="room asc,number asc,student_id asc"
+             data-page-size="50" data-search-columns="student_id,name" data-action-url="api/school/grades/action"
+             data-action-button="Process|btn-success" data-row-actions='{
+               "view": {
+                 "title": "Details of Student",
+                 "className": "btn btn-info icon-info notext",
+                 "url": "api/school/student/view",
+                 "method": "get",
+                 "navigate": false,
+                 "params": {"id": "{student}"}
+               }
+             }'>
+        <thead>
+          <tr>
+            <th data-field="number" data-sort="number" class="center" data-cell-class="center" data-cell-element="number" data-min="0" data-size="5"
+                data-cell-disabled="!can_manage" data-i18n>{LNG_Number}</th>
+            <th data-field="student_id" data-sort="student_id" data-i18n>{LNG_Student ID}</th>
+            <th data-field="name" data-sort="name" data-i18n>{LNG_Full Name}</th>
+            <th data-field="room" data-sort="room" class="center" data-cell-class="center" data-filter="true" data-type="select" data-show-all="true"
+                data-all-value="" data-cell-element="select" data-options-key="room" data-cell-disabled="!can_manage" data-i18n>{LNG_Room}</th>
+            <th data-field="type" class="center" data-cell-class="center" data-cell-element="select" data-options-key="type"
+                data-cell-disabled="!can_rate"></th>
+            <th data-column-group="scores" data-field="midterm" class="center" data-cell-class="center" data-cell-element="number" data-min="0"
+                data-max="100" data-size="5" data-cell-disabled="!can_rate" data-i18n>{LNG_Midterm}</th>
+            <th data-column-group="scores" data-field="final" class="center" data-cell-class="center" data-cell-element="number" data-min="0"
+                data-max="100" data-size="5" data-cell-disabled="!can_rate" data-i18n>{LNG_Final}</th>
+            <th data-field="grade" data-sort="grade" class="center" data-cell-class="center"
+                data-template="<span id='school-grade-${id}' class='school-grade'>${grade}</span>" data-i18n>{LNG_Grade}</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
