@@ -1,0 +1,26 @@
+<!-- modal รายละเอียดของบุคลากร เปิดจาก row action "view" (api/personnel/setup/action) -->
+<article class="personnel-view">
+  <p class="center"><img class="personnel-picture" data-attr="src:picture" alt="picture"></p>
+  <dl class="detail-list">
+    <dt class="icon-customer" data-i18n>{LNG_Full Name}</dt>
+    <dd data-text="name" translate="no"></dd>
+    <dt class="icon-phone" data-i18n>{LNG_Phone}</dt>
+    <dd><a data-attr="href:'tel:' + phone" data-text="phone"></a></dd>
+    <div data-for="item in categories">
+      <template>
+        <dt class="icon-category" data-text="item.label"></dt>
+        <dd data-text="item.value" translate="no"></dd>
+      </template>
+    </div>
+    <dt class="icon-verfied" data-if="class_teacher" data-i18n>{LNG_Class teacher}</dt>
+    <dd data-if="class_teacher" data-text="class_teacher" translate="no"></dd>
+    <dt class="icon-profile" data-if="can_manage" data-i18n>{LNG_Identification No.}</dt>
+    <dd data-if="can_manage" data-text="id_card"></dd>
+    <div data-for="item in details">
+      <template>
+        <dt class="icon-edit" data-text="item.label"></dt>
+        <dd data-text="item.value" translate="no"></dd>
+      </template>
+    </div>
+  </dl>
+</article>

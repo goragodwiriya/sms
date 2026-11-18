@@ -1,0 +1,26 @@
+<!-- modal รายละเอียดของนักเรียน (api/school/students/action view และ api/school/student/view) -->
+<article class="school-view">
+  <p class="center"><img class="school-picture" data-attr="src:picture" alt="picture"></p>
+  <dl class="detail-list">
+    <dt class="icon-customer" data-i18n>{LNG_Full Name}</dt>
+    <dd data-text="name" translate="no"></dd>
+    <dt class="icon-number" data-i18n>{LNG_Student ID}</dt>
+    <dd data-text="student_id"></dd>
+    <div data-for="item in categories">
+      <template>
+        <dt class="icon-office" data-text="item.label"></dt>
+        <dd data-text="item.value" translate="no"></dd>
+      </template>
+    </div>
+    <dt class="icon-profile" data-if="can_config" data-i18n>{LNG_Identification No.}</dt>
+    <dd data-if="can_config" data-text="id_card"></dd>
+    <dt class="icon-address" data-i18n>{LNG_Address}</dt>
+    <dd data-text="address" translate="no"></dd>
+    <dt class="icon-phone" data-i18n>{LNG_Phone}</dt>
+    <dd><a data-attr="href:'tel:' + phone" data-text="phone"></a></dd>
+    <dt class="icon-customer" data-i18n>{LNG_Parent}</dt>
+    <dd data-text="parent" translate="no"></dd>
+    <dt class="icon-phone" data-i18n>{LNG_Phone} ({LNG_Parent})</dt>
+    <dd><a data-attr="href:'tel:' + parent_phone" data-text="parent_phone"></a></dd>
+  </dl>
+</article>
